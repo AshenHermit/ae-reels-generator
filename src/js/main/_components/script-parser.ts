@@ -78,6 +78,13 @@ export class ScriptParser {
       }
     });
 
+    this.scriptData.layersOrder.forEach((layer) => {
+      this.parseCommandBlock({
+        name: "break",
+        params: { layer: layer },
+      });
+    });
+
     this.scriptData.layersOrder.push("filter");
     this.addFilter();
   }

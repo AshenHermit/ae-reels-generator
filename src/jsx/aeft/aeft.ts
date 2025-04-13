@@ -280,6 +280,12 @@ export function generateTransformAnimation(
   var fromScale = parseValue(from.scale, "", true);
   var toScale = parseValue(to.scale, "", true);
 
+  if (startTime == 0) {
+    pos.setValue([toX, toY]);
+    scale.setValue([toScale, toScale]);
+    return;
+  }
+
   var midTime = (startTime + endTime) / 2;
   midTime += (startTime - midTime) / 1.5;
 
